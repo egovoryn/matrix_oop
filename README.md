@@ -8,17 +8,17 @@ Implementation of a proprietary library for processing numerical matrices in the
 
 ### An example of a matrix class in C++
 ```cpp
-class S21Matrix {
+class Matrix {
     private:
         // Attributes
         int _rows, _cols;         // Rows and columns
         double **_matrix;         // Pointer to the memory where the matrix is allocated
 
     public:
-        S21Matrix();              // Default constructor
-        ~S21Matrix();             // Destructor
+        Matrix();              // Default constructor
+        ~Matrix();             // Destructor
 
-        void sum_matrix(const S21Matrix& other); 
+        void sum_matrix(const Matrix& other); 
         // Other methods..
 }
 ```
@@ -55,25 +55,25 @@ Note that some operations have exceptional situations that require special handl
 
 | Operation | Description | Exceptional situations |
 | ----------- | ----------- | ----------- |
-| `bool eq_matrix(const S21Matrix& other)` | Checks matrices for equality with each other |  |
-| `void sum_matrix(const S21Matrix& other)` | Adds the second matrix to the current one | different matrix dimensions |
-| `void sub_matrix(const S21Matrix& other)` | Subtracts another matrix from the current one | different matrix dimensions |
+| `bool eq_matrix(const Matrix& other)` | Checks matrices for equality with each other |  |
+| `void sum_matrix(const Matrix& other)` | Adds the second matrix to the current one | different matrix dimensions |
+| `void sub_matrix(const Matrix& other)` | Subtracts another matrix from the current one | different matrix dimensions |
 | `void mul_number(const double num) ` | Multiplies the current matrix by a number |  |
-| `void mul_matrix(const S21Matrix& other)` | Multiplies the current matrix by the second matrix | the number of columns of the first matrix is not equal to the number of rows of the second matrix |
-| `S21Matrix transpose()` | Creates a new transposed matrix from the current one and returns it |  |
-| `S21Matrix calc_complements()` | Calculates the algebraic addition matrix of the current one and returns it | the matrix is not square |
+| `void mul_matrix(const Matrix& other)` | Multiplies the current matrix by the second matrix | the number of columns of the first matrix is not equal to the number of rows of the second matrix |
+| `Matrix transpose()` | Creates a new transposed matrix from the current one and returns it |  |
+| `Matrix calc_complements()` | Calculates the algebraic addition matrix of the current one and returns it | the matrix is not square |
 | `double determinant()` | Calculates and returns the determinant of the current matrix | the matrix is not square |
-| `S21Matrix inverse_matrix()` | Calculates and returns the inverse matrix | matrix determinant is 0 |
+| `Matrix inverse_matrix()` | Calculates and returns the inverse matrix | matrix determinant is 0 |
 
 Apart from those operations, you also need to implement constructors and destructors:
 
 | Method | Description |
 | ----------- | ----------- |
-| `S21Matrix()` | A basic constructor that initialises a matrix of some predefined dimension |  
-| `S21Matrix(int rows, int cols) ` | Parametrized constructor with number of rows and columns |
-| `S21Matrix(const S21Matrix& other)` | Copy constructor |
-| `S21Matrix(S21Matrix&& other)` | Move constructor |
-| `~S21Matrix()` | Destructor |
+| `Matrix()` | A basic constructor that initialises a matrix of some predefined dimension |  
+| `Matrix(int rows, int cols) ` | Parametrized constructor with number of rows and columns |
+| `Matrix(const Matrix& other)` | Copy constructor |
+| `Matrix(Matrix&& other)` | Move constructor |
+| `~Matrix()` | Destructor |
 
 And you also need to overload the following operators, partly corresponding to the operations above:
 
@@ -93,7 +93,7 @@ And you also need to overload the following operators, partly corresponding to t
 
 - For start of build and tests program use `make` in terminal
 - The program developed in C++ language of C++17 standard using gcc compiler
-- Implemention of the matrix as an `S21Matrix` class
+- Implemention of the matrix as an `Matrix` class
 - Used only the `matrix`, `rows` and `columns` fields as private
 - Implemention of the access to private fields `rows` and `columns` via accessor and mutator
 - This is static library (with matrix_oop.h header file)
