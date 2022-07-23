@@ -1,5 +1,4 @@
-#ifndef SRC_O_MATRIX_OOP_H_
-#define SRC_O_MATRIX_OOP_H_
+#pragma once
 
 #include <iostream>
 #include <cmath>
@@ -61,5 +60,3 @@ class OMatrix {
     void setCols(int value);
     void setRows(int value);
 };
-
-#endif  //  SRC_O_MATRIX_OOP_H_
